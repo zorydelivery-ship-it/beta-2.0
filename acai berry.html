@@ -1,0 +1,485 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Açaí Berry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos exclusivos para Açaí Berry y su carrito -->
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f4f4; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .mobile-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; position: relative; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding-bottom: 80px; }
+        
+        /* Header y Logo */
+        .main-header { display: flex; align-items: center; justify-content: center; padding: 10px 15px; background: #fff; position: relative; border-bottom: 1px solid #eee; }
+        .header-logo { height: 40px; object-fit: contain; }
+        .promo-banner img { width: 100%; max-height: 180px; object-fit: cover; display: block; }
+        
+        /* Secciones y Títulos */
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #222; background: #f8f8f8; padding: 10px 15px; margin: 15px 0 10px 0; border-left: 4px solid #ff7043; }
+        
+        /* Grillas y Tarjetas */
+        .products-grid-custom, .products-grid { padding: 0 15px; display: flex; flex-direction: column; gap: 15px; }
+        .product-card-with-img, .product-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #eee; }
+        .prod-header-img { width: 100%; height: 160px; object-fit: cover; }
+        .prod-info { padding: 12px; }
+        .prod-info h4 { font-size: 1rem; color: #333; margin-bottom: 4px; }
+        .prod-info p { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+        
+        /* Tamaños y Botones */
+        .sizes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+        .sizes-grid-3 { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
+        .size-btn { background: #fafafa; border: 1px solid #ddd; border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
+        .size-btn:hover { background: #ff7043; color: #fff; border-color: #ff7043; }
+        .size-btn .price { display: block; font-weight: 700; color: #d32f2f; font-size: 0.8rem; }
+        .size-btn:hover .price { color: #fff; }
+        
+        /* Agregados Extras */
+        .aggregate-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-bottom: 1px solid #f0f0f0; }
+        .aggregate-item .info { font-size: 0.9rem; color: #333; }
+        .aggregate-item .price { display: block; font-size: 0.8rem; color: #d32f2f; font-weight: 600; }
+        .agregado-btn { background: #ff7043; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; font-size: 0.8rem; cursor: pointer; }
+
+        /* Footer */
+        .social-footer { text-align: center; padding: 20px; margin-top: 20px; background: #fafafa; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; font-size: 1.2rem; margin-bottom: 8px; }
+        .social-icons a { color: #333; }
+        .scalat-credits { font-size: 0.8rem; color: #888; }
+
+        /* Carrito Flotante y Modal */
+        .cart-float-btn { position: fixed; bottom: 20px; right: 20px; background-color: #ff7043; color: white; border: none; border-radius: 30px; padding: 12px 20px; font-size: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .cart-badge { background: #fff; color: #ff7043; padding: 2px 7px; border-radius: 50%; font-weight: bold; font-size: 12px; }
+        .cart-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 10000; }
+        .cart-modal.active { display: flex; }
+        .cart-content { background: white; width: 90%; max-width: 400px; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; max-height: 85vh; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-close { background: none; border: none; font-size: 18px; cursor: pointer; }
+        .cart-items-list { overflow-y: auto; flex-grow: 1; padding: 10px 0; max-height: 220px; }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.9rem; }
+        
+        /* Campo Nombre del Cliente */
+        .client-info-section { margin: 10px 0; border-top: 1px solid #eee; padding-top: 10px; }
+        .client-info-section label { display: block; font-size: 0.85rem; font-weight: 600; color: #333; margin-bottom: 5px; }
+        .client-info-section input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; outline: none; }
+        .client-info-section input:focus { border-color: #ff7043; }
+
+        .cart-total-section { display: flex; justify-content: space-between; font-weight: bold; font-size: 18px; border-top: 1px solid #eee; padding-top: 10px; margin-bottom: 15px; }
+        .btn-enviar-pedido { background-color: #25d366; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .back-home-btn-float {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    z-index: 10;
+    transition: 0.2s;
+}
+
+.back-home-btn-float:hover {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+       <!-- Banner del Local con el Botón Flotante Integrado -->
+<section class="promo-banner" style="position: relative;">
+    <a href="index.html" class="back-home-btn-float">
+        <i class="fa-solid fa-store"></i> Ver más
+    </a>
+    <img src="Açaí berry.webp" alt="Banner del Local">
+</section>
+
+        <!-- CATEGORÍA: CAMADINHAS TRADICIONALES -->
+        <h2 class="section-title">CAMADINHAS</h2>
+        <section class="products-grid-custom">
+            <!-- TRADICIONAL -->
+            <div class="product-card-with-img">
+                <img src="acai banner berry.jpg" alt="Tradicional" class="prod-header-img">
+                <div class="prod-info">
+                    <h4>Tradicional</h4>
+                    <p>Açaí, leche en polvo, leche condensada, granola y banana.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tradicional (240ml)', 15000)">240ml <span class="price">Gs. 15.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tradicional (330ml)', 20000)">330ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tradicional (440ml)', 25000)">440ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tradicional (550ml)', 30000)">550ml <span class="price">Gs. 30.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- OREO -->
+            <div class="product-card-with-img">
+                <img src="acai banner berry.jpg" alt="Oreo" class="prod-header-img">
+                <div class="prod-info">
+                    <h4>Oreo</h4>
+                    <p>Açaí, leche en polvo, leche condensada, oreo y nutella.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Oreo (240ml)', 15000)">240ml <span class="price">Gs. 15.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Oreo (330ml)', 20000)">330ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Oreo (440ml)', 25000)">440ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Oreo (550ml)', 30000)">550ml <span class="price">Gs. 30.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- TRES LECHES -->
+            <div class="product-card-with-img">
+                <img src="acai banner berry.jpg" alt="Tres Leches" class="prod-header-img">
+                <div class="prod-info">
+                    <h4>Tres Leches</h4>
+                    <p>Açaí, leche en polvo, leche condensada y dulce de leche.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tres Leches (240ml)', 13000)">240ml <span class="price">Gs. 13.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tres Leches (330ml)', 18000)">330ml <span class="price">Gs. 18.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tres Leches (440ml)', 23000)">440ml <span class="price">Gs. 23.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Tres Leches (550ml)', 28000)">550ml <span class="price">Gs. 28.000</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: VARIACIONES DE AÇAÍ -->
+        <h2 class="section-title">Variedades de Açaí</h2>
+        <section class="products-grid-custom">
+            <!-- Açaí Blanco -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Blanco</h4>
+                    <p>Pasta de leche con cookies, dos agregados a elección.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Blanco (240ml)', 20000)">240ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Blanco (330ml)', 25000)">330ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Blanco (440ml)', 30000)">440ml <span class="price">Gs. 30.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Blanco (550ml)', 35000)">550ml <span class="price">Gs. 35.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Açaí Negro -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Negro</h4>
+                    <p>Pasta de brownie con cookies y castaña de cajú, más dos agregados.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Black (240ml)', 18000)">240ml <span class="price">Gs. 18.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Black (330ml)', 23000)">330ml <span class="price">Gs. 23.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Black (440ml)', 28000)">440ml <span class="price">Gs. 28.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Black (550ml)', 33000)">550ml <span class="price">Gs. 33.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Verde de açaí -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Verde</h4>
+                    <p>Pasta de pistacho, más dos agregados.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Green (240ml)', 20000)">240ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Green (330ml)', 25000)">330ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Green (440ml)', 30000)">440ml <span class="price">Gs. 30.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Green (550ml)', 35000)">550ml <span class="price">Gs. 35.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fruta de açaí -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Fruta de açaí <small style="font-size:0.75rem; color:#888;">(Solo en temporada)</small></h4>
+                    <p>Banana, kiwi, durazno y frutilla.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Fruit (330ml)', 20000)">330ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Fruit (440ml)', 25000)">440ml <span class="price">Gs. 25.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Açaí Dubai -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Dubai</h4>
+                    <p>Pistacho, kataifi, bañado de chocolate y açaí.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Dubai (330ml)', 30000)">330ml <span class="price">Gs. 30.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Dubai (440ml)', 35000)">440ml <span class="price">Gs. 35.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- HELADO + AÇAÍ -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Helado + Açaí</h4>
+                    <p>Combinación deliciosa de helado suave con açaí.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Helado + Açaí (330ml)', 20000)">330ml <span class="price">Gs. 20.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Helado + Açaí (440ml)', 25000)">440ml <span class="price">Gs. 25.000</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: TRUFADOS Y 1KG -->
+        <h2 class="section-title">TRUFADOS Y PRESENTACIONES 1KG</h2>
+        <section class="products-grid-custom">
+            <!-- Açaí Avellana Trufado -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Trufado Avellana</h4>
+                    <p>Más dos agregados a elección.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Trufado Avellana (330ml)', 25000)">330ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Trufado Avellana (440ml)', 30000)">440ml <span class="price">Gs. 30.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Açaí Trufado con Leche -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Açaí Trufado Leitinho</h4>
+                    <p>Más dos agregados a elección.</p>
+                    <div class="sizes-grid">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Trufado Leitinho (330ml)', 25000)">330ml <span class="price">Gs. 25.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Açaí Trufado Leitinho (440ml)', 30000)">440ml <span class="price">Gs. 30.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- CAPA DE 1 KG -->
+            <div class="product-card-with-img">
+                <div class="prod-info">
+                    <h4>Capa de Açaí 1 Kg</h4>
+                    <p>¡Disfruta de la mejor camadinha de Açaí en tamaño familiar!</p>
+                    <div class="sizes-grid-3">
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Pure Açaí (1kg)', 65000)">Pure <span class="price">Gs. 65.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Traditional Layer (1kg)', 70000)">Traditional <span class="price">Gs. 70.000</span></div>
+                        <div class="size-btn" onclick="agregarConTextoAgregado(this, 'Camadinha Oreo (1kg)', 70000)">Oreo <span class="price">Gs. 70.000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tazón de açaí -->
+            <div class="product-card-with-img">
+                <img src="acai banner berry.jpg" alt="Tazón de açaí" class="prod-header-img">
+                <div class="prod-info">
+                    <h4>Tazón de açaí</h4>
+                    <p>Incluye +4 agregados a elección.</p>
+                    <span class="prod-price" style="font-size: 1.1rem; font-weight: 700; color: #d32f2f; display: block; margin: 8px 0;">Gs. 25.000</span>
+                    <button class="btn-pedir" style="width: 100%; padding: 10px; background: #ff7043; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer;" onclick="agregarConTextoAgregado(this, 'Açaí Bowl (+4 agregados)', 25000)">PEDIR BOWL</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: POSTRES Y HELADOS -->
+        <h2 class="section-title">POSTRES Y HELADOS</h2>
+        <section class="products-grid">
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Gran poste</h4>
+                    <span class="prod-price" style="color: #d32f2f; font-weight:700;">Gs. 16.000</span>
+                    <button class="btn-pedir" style="background: #ff7043; color: #fff; border: none; padding: 8px; border-radius: 6px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px;" onclick="agregarConTextoAgregado(this, 'Paletto Grande', 16000)">PEDIR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Franuí</h4>
+                    <span class="prod-price" style="color: #d32f2f; font-weight:700;">Gs. 45.000</span>
+                    <button class="btn-pedir" style="background: #ff7043; color: #fff; border: none; padding: 8px; border-radius: 6px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px;" onclick="agregarConTextoAgregado(this, 'Franuí', 45000)">PEDIR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Helado Artesanal (cada 100gr)</h4>
+                    <span class="prod-price" style="color: #d32f2f; font-weight:700;">Gs. 6.500</span>
+                    <button class="btn-pedir" style="background: #ff7043; color: #fff; border: none; padding: 8px; border-radius: 6px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px;" onclick="agregarConTextoAgregado(this, 'Helado Artesanal (100gr)', 6500)">PEDIR</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: AGREGADOS EXTRAS -->
+        <h2 class="section-title">AGREGADOS EXTRAS</h2>
+        <section style="margin-bottom: 25px;">
+            <div class="aggregate-item"><div class="info"><strong>Plátano</strong><span class="price">Gs. 4.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Plátano Extra', 4000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Kiwi</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Kiwi Extra', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Durazno</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Durazno', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Granola</strong><span class="price">Gs. 4.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Granola Extra', 4000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Cereal Mixto</strong><span class="price">Gs. 4.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Mix Cereal', 4000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Maní Triturado</strong><span class="price">Gs. 3.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Maní Triturado', 3000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Cohetes</strong><span class="price">Gs. 4.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Cohetes Extra', 4000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Leche en Polvo</strong><span class="price">Gs. 3.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Leche en Polvo', 3000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Leche Condensada</strong><span class="price">Gs. 3.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Leche Condensada', 3000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Oreo</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Oreo', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Dulce de Leche</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Dulce de Leche', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Bañado de Chocolate</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Bañado de Chocolate', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Nutella</strong><span class="price">Gs. 5.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Nutella', 5000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Pasta de Pistacho</strong><span class="price">Gs. 10.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Pasta de Pistacho', 10000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Pasta de Leche con Cookies</strong><span class="price">Gs. 10.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Pasta de Leche c/ Cookies', 10000)">+ Pedir</button></div>
+            <div class="aggregate-item"><div class="info"><strong>Pasta Brownie/Cookies/Castaña</strong><span class="price">Gs. 10.000</span></div><button class="agregado-btn" onclick="agregarConTextoAgregado(this, 'Extra Pasta Brownie/Castaña', 10000)">+ Pedir</button></div>
+        </section>
+
+ <div style="text-align: center; padding: 15px 0;">
+    <!-- Redes Sociales (Iconos limpios) -->
+  <div class="social-icons" style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 12px;">
+        <a href="https://www.facebook.com/share/19Axc55VUv/?mibextid=wwXIfr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/zoridelivery?igsh=MXFobTh4amJndnNyeQ%3D%3D&utm_source=qr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/595982309464" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Créditos -->
+    <div class="scalat-credits" style="font-size: 0.8rem; color: #666;">
+        Desarrollado por <code><span>Sclat tech</span></code>
+    </div>
+</div>
+
+    <!-- Botón Flotante del Carrito -->
+    <button class="cart-float-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-cart-shopping"></i> Ver Carrito
+        <span class="cart-badge" id="cartCount">0</span>
+    </button>
+
+    <!-- Modal del Carrito -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Tu Pedido</h3>
+                <button class="cart-close" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-items-list" id="cartItems">
+                <!-- Se llena mediante el script integrado -->
+            </div>
+            
+            <!-- Campo para el Nombre del Cliente -->
+            <div class="client-info-section">
+                <label for="nombreCliente">Tu Nombre:</label>
+                <input type="text" id="nombreCliente" placeholder="Nombre">
+            </div>
+
+            <div class="cart-total-section">
+                <span>Total:</span>
+                <span class="amount" id="cartTotal">Gs. 0</span>
+            </div>
+            <button class="btn-enviar-pedido" onclick="enviarPedidoWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Lógica del Carrito integrada -->
+    <script>
+        let carrito = [];
+
+        function agregarConTextoAgregado(button, nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+            
+            let originalText = button.innerHTML;
+            button.style.backgroundColor = '#25d366';
+            button.style.color = '#fff';
+            if(!button.classList.contains('size-btn')) {
+                button.innerHTML = '¡Agregado!';
+            }
+            setTimeout(() => {
+                button.style.backgroundColor = '';
+                button.style.color = '';
+                if(!button.classList.contains('size-btn')) {
+                    button.innerHTML = originalText;
+                }
+            }, 600);
+        }
+
+        function actualizarCarrito() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cartCount) cartCount.innerText = carrito.length;
+
+            if (cartItems) {
+                cartItems.innerHTML = '';
+                let total = 0;
+
+                carrito.forEach((prod, index) => {
+                    total += prod.precio;
+                    cartItems.innerHTML += `
+                        <div class="cart-item-row">
+                            <span>${prod.nombre}</span>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <strong>Gs. ${prod.precio.toLocaleString()}</strong>
+                                <button onclick="eliminarItem(${index})" style="background:none; border:none; color:#ff4444; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                if (cartTotal) cartTotal.innerText = `Gs. ${total.toLocaleString()}`;
+            }
+        }
+
+        function eliminarItem(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            if (modal) {
+                modal.classList.toggle('active');
+            }
+        }
+
+        function enviarPedidoWhatsApp() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+
+            const nombreCliente = document.getElementById('nombreCliente').value.trim();
+            if (!nombreCliente) {
+                alert('Por favor, ingresa tu nombre para enviar el pedido.');
+                document.getElementById('nombreCliente').focus();
+                return;
+            }
+
+            let mensaje = `Hola! Quisiera realizar un pedido para *Açaí Berry*:\n\n*Cliente:* ${nombreCliente}\n\n*Detalle:*`;
+            let total = 0;
+
+            carrito.forEach(prod => {
+                mensaje += `\n- ${prod.nombre}: Gs. ${prod.precio.toLocaleString()}`;
+                total += prod.precio;
+            });
+
+            mensaje += `\n\n*Total a pagar: Gs. ${total.toLocaleString()}*`;
+
+            let telefono = "595982309464";
+            let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+        
+    </script>
+    <!-- SDK de Firebase App (Compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+
+<!-- 2. SDK de Firebase Analytics -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+<!-- 3. SDK de Firestore (para los pedidos) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- 4. Tu archivo de configuración de Firebase -->
+
+<!-- 5. Tu archivo de lógica principal -->
+<script src="js.js"></script>
+</body>
+</html>

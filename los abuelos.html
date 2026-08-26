@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Los Abuelos | Zori Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+    <style>
+        /* Estilos generales de la tarjeta de producto modificados para agrandar la imagen */
+        .product-card {
+            display: flex;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            gap: 14px;
+            align-items: center;
+        }
+        .product-card .prod-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-card .prod-info h4 {
+            font-size: 0.95rem;
+            margin: 0 0 4px 0;
+            color: #333;
+            font-weight: 700;
+        }
+        .product-card .prod-info p {
+            font-size: 0.78rem;
+            color: #666;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+        .product-card .prod-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ff6600;
+            margin-bottom: 8px;
+        }
+        /* Imagen más grande y estilizada */
+        .product-card img {
+            width: 185px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Botón PEDIR inicial */
+        .btn-pedir-inicial {
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(255, 102, 0, 0.3);
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-pedir-inicial:active {
+            transform: scale(0.97);
+            background: #e55c00;
+        }
+
+        /* Estado cuando ya está agregado (muestra cantidad o "Agregado") */
+        .btn-pedir-inicial.agregado {
+            background: #25d366;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Estilos del Carrito Flotante */
+        .cart-float-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .cart-float-btn:active {
+            transform: scale(0.95);
+            background: #e55c00;
+        }
+        .cart-badge {
+            background: #ffcc00;
+            color: #333;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+        /* Modal del Carrito */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .cart-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .cart-content {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            max-height: 85vh;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
+        }
+        .cart-modal.active .cart-content {
+            transform: translateY(0);
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        .cart-header h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 0;
+        }
+        .cart-close {
+            background: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+        .cart-items-list {
+            overflow-y: auto;
+            flex-grow: 1;
+            max-height: 40vh;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-item-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        .cart-item-price {
+            color: #ff6600;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .qty-btn {
+            background: #f0f0f0;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        .qty-btn:active {
+            background: #ddd;
+        }
+        .cart-total-section {
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+        }
+        .cart-total-section span.amount {
+            color: #ff6600;
+        }
+        .btn-enviar-pedido {
+            background: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .btn-enviar-pedido:active {
+            background: #1ebc57;
+        }
+        .cart-empty {
+            text-align: center;
+            color: #888;
+            padding: 30px 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        <section class="promo-banner" style="position: relative;">
+            <a href="index.html" class="back-home-btn-float">
+                <i class="fa-solid fa-store"></i> Ver más
+            </a>
+            <img src="los abuelos logo.png" alt="Banner del Local">
+        </section>
+
+        <!-- CATEGORÍA: ESPECIALIDADES Y COMIDAS -->
+        <h2 class="section-title">NUESTROS MENÚ</h2>
+        <section class="products-grid">
+            
+            <!-- HAMBUPIZZA PERSONAL -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Hambupizza Personal</h4>
+                    <p>Deliciosa hambupizza personal. También contamos con lomipizza personal (Gs. 40.000).</p>
+                    <span class="prod-price">Gs. 35.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Hambupizza-Personal" onclick="agregarProducto('Hambupizza Personal', 35000, 'Hambupizza-Personal')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Hambupizza personal">
+            </div>
+
+            <!-- LOMIPIZZA PERSONAL -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Lomipizza Personal</h4>
+                    <p>Exquisita lomipizza tamaño personal.</p>
+                    <span class="prod-price">Gs. 40.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Lomipizza-Personal" onclick="agregarProducto('Lomipizza Personal', 40000, 'Lomipizza-Personal')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Lomipizza personal">
+            </div>
+
+            <!-- ALITAS FRITAS -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Alitas Fritas (Grande)</h4>
+                    <p>Crujientes alitas fritas. (Opciones: personal Gs. 30.000, mediano Gs. 55.000)</p>
+                    <span class="prod-price">Gs. 80.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Alitas-Fritas-Grande" onclick="agregarProducto('Alitas Fritas Grande', 80000, 'Alitas-Fritas-Grande')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Alitas fritas">
+            </div>
+
+            <!-- ALITAS FRITAS PERSONAL -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Alitas Fritas (Personal)</h4>
+                    <p>Porción personal de alitas fritas.</p>
+                    <span class="prod-price">Gs. 30.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Alitas-Fritas-Personal" onclick="agregarProducto('Alitas Fritas Personal', 30000, 'Alitas-Fritas-Personal')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Alitas fritas personal">
+            </div>
+
+            <!-- ALITAS FRITAS MEDIANO -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Alitas Fritas (Mediano)</h4>
+                    <p>Porción mediana de alitas fritas.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Alitas-Fritas-Mediano" onclick="agregarProducto('Alitas Fritas Mediano', 55000, 'Alitas-Fritas-Mediano')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Alitas fritas mediano">
+            </div>
+
+            <!-- BOCADITO -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Bocadito (Grande)</h4>
+                    <p>Surtido completo de bocaditos. También mediano (Gs. 80.000).</p>
+                    <span class="prod-price">Gs. 110.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Bocadito-Grande" onclick="agregarProducto('Bocadito Grande', 110000, 'Bocadito-Grande')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Bocadito">
+            </div>
+
+            <!-- BOCADITO MEDIANO -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Bocadito Mediano</h4>
+                    <p>Surtido mediano de deliciosos bocaditos.</p>
+                    <span class="prod-price">Gs. 80.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Bocadito-Mediano" onclick="agregarProducto('Bocadito Mediano', 80000, 'Bocadito-Mediano')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Bocadito mediano">
+            </div>
+
+            <!-- PEPERONI -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Pizza Peperoni</h4>
+                    <p>Antojo de pizza de peperoni. Borde relleno (Gs. 55.000).</p>
+                    <span class="prod-price">Gs. 45.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Pizza-Peperoni" onclick="agregarProducto('Pizza Peperoni', 45000, 'Pizza-Peperoni')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Peperoni">
+            </div>
+
+            <!-- PEPERONI BORDE RELLENO -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Pizza Peperoni Borde Relleno</h4>
+                    <p>Pizza de peperoni con delicioso borde relleno.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Pizza-Peperoni-Borde-Relleno" onclick="agregarProducto('Pizza Peperoni Borde Relleno', 55000, 'Pizza-Peperoni-Borde-Relleno')">PEDIR</button>
+                </div>
+                <img src="hamburpizza los abuelos.jpg" alt="Peperoni borde relleno">
+            </div>
+
+        </section>
+
+        <!-- CATEGORÍA: AÇAI -->
+        <h2 class="section-title">AÇAI</h2>
+        <section class="products-grid">
+            
+            <!-- TRADICIONAL -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tradicional (Chico - 300ml)</h4>
+                    <p>Banana, granola, leche condensada, leche en polvo, açaí.</p>
+                    <span class="prod-price">Gs. 15.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tradicional-Chico" onclick="agregarProducto('Acai Tradicional Chico', 15000, 'Acai-Tradicional-Chico')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tradicional Chico">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tradicional (Mediano - 400ml)</h4>
+                    <p>Banana, granola, leche condensada, leche en polvo, açaí.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tradicional-Mediano" onclick="agregarProducto('Acai Tradicional Mediano', 20000, 'Acai-Tradicional-Mediano')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tradicional Mediano">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tradicional (Grande - 500ml)</h4>
+                    <p>Banana, granola, leche condensada, leche en polvo, açaí.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tradicional-Grande" onclick="agregarProducto('Acai Tradicional Grande', 25000, 'Acai-Tradicional-Grande')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tradicional Grande">
+            </div>
+
+            <!-- FRUTAL -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Frutal (Chico - 300ml)</h4>
+                    <p>Kiwi, banana, granola, leche condensada, frutilla, açaí.</p>
+                    <span class="prod-price">Gs. 15.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Frutal-Chico" onclick="agregarProducto('Acai Frutal Chico', 15000, 'Acai-Frutal-Chico')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Frutal Chico">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Frutal (Mediano - 400ml)</h4>
+                    <p>Kiwi, banana, granola, leche condensada, frutilla, açaí.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Frutal-Mediano" onclick="agregarProducto('Acai Frutal Mediano', 20000, 'Acai-Frutal-Mediano')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Frutal Mediano">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Frutal (Grande - 500ml)</h4>
+                    <p>Kiwi, banana, granola, leche condensada, frutilla, açaí.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Frutal-Grande" onclick="agregarProducto('Acai Frutal Grande', 25000, 'Acai-Frutal-Grande')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Frutal Grande">
+            </div>
+
+            <!-- TRES LECHES -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tres Leches (Chico - 300ml)</h4>
+                    <p>Leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 15.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tres-Leches-Chico" onclick="agregarProducto('Acai Tres Leches Chico', 15000, 'Acai-Tres-Leches-Chico')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tres Leches Chico">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tres Leches (Mediano - 400ml)</h4>
+                    <p>Leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tres-Leches-Mediano" onclick="agregarProducto('Acai Tres Leches Mediano', 20000, 'Acai-Tres-Leches-Mediano')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tres Leches Mediano">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Tres Leches (Grande - 500ml)</h4>
+                    <p>Leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Tres-Leches-Grande" onclick="agregarProducto('Acai Tres Leches Grande', 25000, 'Acai-Tres-Leches-Grande')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Tres Leches Grande">
+            </div>
+
+            <!-- PERSONALIZADO -->
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Personalizado (Chico - 300ml)</h4>
+                    <p>Banana, granola, oreo, nutella, leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 18.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Personalizado-Chico" onclick="agregarProducto('Acai Personalizado Chico', 18000, 'Acai-Personalizado-Chico')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Personalizado Chico">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Personalizado (Mediano - 400ml)</h4>
+                    <p>Banana, granola, oreo, nutella, leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 23.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Personalizado-Mediano" onclick="agregarProducto('Acai Personalizado Mediano', 23000, 'Acai-Personalizado-Mediano')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Personalizado Mediano">
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Açaí Personalizado (Grande - 500ml)</h4>
+                    <p>Banana, granola, oreo, nutella, leche condensada, leche en polvo, dulce de leche, açaí.</p>
+                    <span class="prod-price">Gs. 28.000</span>
+                    <button class="btn-pedir-inicial" id="btn-pedir-Acai-Personalizado-Grande" onclick="agregarProducto('Acai Personalizado Grande', 28000, 'Acai-Personalizado-Grande')">PEDIR</button>
+                </div>
+                <img src="acai practica lbos.jpg" alt="Acai Personalizado Grande">
+            </div>
+
+        </section>
+
+        <!-- Footer Minimalista -->
+       <footer class="social-footer">
+<div style="text-align: center; padding: 15px 0;">
+    <!-- Redes Sociales (Iconos limpios) -->
+ <div class="social-icons" style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 12px;">
+        <a href="https://www.facebook.com/share/19Axc55VUv/?mibextid=wwXIfr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/zoridelivery?igsh=MXFobTh4amJndnNyeQ%3D%3D&utm_source=qr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/595982309464" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Créditos -->
+    <div class="scalat-credits" style="font-size: 0.8rem; color: #666;">
+        Desarrollado por <code><span>Sclat tech</span></code>
+    </div>
+</div>
+</footer>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+
+<!-- 2. SDK de Firebase Analytics -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+<!-- 3. SDK de Firestore (para los pedidos) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Script de control local y de botones -->
+    <script>
+        function agregarProducto(nombreProducto, precio, id) {
+            if (typeof updateQty === 'function') {
+                updateQty(nombreProducto, precio, 1);
+            }
+
+            const btn = document.getElementById('btn-pedir-' + id);
+            if (btn) {
+                btn.innerText = '¡AGREGADO!';
+                btn.classList.add('agregado');
+                
+                setTimeout(() => {
+                    btn.innerText = 'PEDIR';
+                    btn.classList.remove('agregado');
+                }, 1500);
+            }
+        }
+    </script>
+
+    <!-- Script principal de carrito modificado para asegurar el nombre del local -->
+    <script src="js.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                if (typeof database !== 'undefined') {
+                    database["los abuelos"] = {
+                        nombre: "Los Abuelos",
+                        whatsapp: "595982309464"
+                    };
+                }
+                if (typeof obtenerStoreActual === 'function') {
+                    window.obtenerStoreActual = function() {
+                        return {
+                            nombre: "Los Abuelos",
+                            whatsapp: "595982309464"
+                        };
+                    };
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

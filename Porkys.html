@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Porkys</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- Banner del Local con el Botón Flotante Integrado -->
+<section class="promo-banner" style="position: relative;">
+    <a href="index.html" class="back-home-btn-float">
+        <i class="fa-solid fa-store"></i> Ver mas
+    </a>
+    <img src="porkis.web.jpeg" alt="Banner del Local">
+</section>
+        <!-- CATEGORÍA: PIZZAS -->
+        <h2 class="section-title">PIZZAS</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Muzzarella">
+                <div class="prod-info">
+                    <h4>Muzzarella</h4>
+                    <p>Salsa, Muzzarella, Orégano.</p>
+                    <span class="prod-price">Gs. 40.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Muzzarella', 40000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Palmito">
+                <div class="prod-info">
+                    <h4>Palmito</h4>
+                    <p>Salsa, Muzzarella, Palmito, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Palmito', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Aceituna">
+                <div class="prod-info">
+                    <h4>Aceituna</h4>
+                    <p>Salsa, Muzzarella, Aceituna, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Aceituna', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Fugazzeta">
+                <div class="prod-info">
+                    <h4>Fugazzeta</h4>
+                    <p>Salsa, Muzzarella, Cebolla Salteada, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Fugazzeta', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Panceta">
+                <div class="prod-info">
+                    <h4>Panceta</h4>
+                    <p>Salsa, Muzzarella, Panceta, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Tomate al Ajo">
+                <div class="prod-info">
+                    <h4>Tomate al Ajo</h4>
+                    <p>Salsa, Muzzarella, Tomate, Ajo, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Tomate al Ajo', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Napolitana">
+                <div class="prod-info">
+                    <h4>Napolitana</h4>
+                    <p>Salsa, Muzzarella, Tomate, Jamón, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Napolitana', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="3 Quesos">
+                <div class="prod-info">
+                    <h4>3 Quesos</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Catupiry, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('3 Quesos', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Calabresa">
+                <div class="prod-info">
+                    <h4>Calabresa</h4>
+                    <p>Salsa, Muzzarella, Calabresa, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Calabresa', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Pepperoni">
+                <div class="prod-info">
+                    <h4>Pepperoni</h4>
+                    <p>Salsa, Muzzarella, Pepperoni, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pepperoni', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Cebolla Morada">
+                <div class="prod-info">
+                    <h4>Cebolla Morada</h4>
+                    <p>Salsa, Muzzarella, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 50.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Cebolla Morada', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Jamón y Choclo">
+                <div class="prod-info">
+                    <h4>Jamón y Choclo</h4>
+                    <p>Salsa, Muzzarella, Jamón, Choclo, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Jamón y Choclo', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Rúcula">
+                <div class="prod-info">
+                    <h4>Rúcula</h4>
+                    <p>Salsa, Muzzarella, Rúcula, Rodaja de Tomate, Queso Rayado, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Rúcula', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Atún y Choclo">
+                <div class="prod-info">
+                    <h4>Atún y Choclo</h4>
+                    <p>Salsa, Muzzarella, Atún, Choclo, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Atún y Choclo', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Pepperoni Catupiry">
+                <div class="prod-info">
+                    <h4>Pepperoni Catupiry</h4>
+                    <p>Salsa, Muzzarella, Pepperoni, Catupiry, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pepperoni Catupiry', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="4 Quesos">
+                <div class="prod-info">
+                    <h4>4 Quesos</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Cremoso, Parmesano, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('4 Quesos', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Hawaiana">
+                <div class="prod-info">
+                    <h4>Hawaiana</h4>
+                    <p>Salsa, Muzzarella, Jamón, Rodajas de Piña, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Hawaiana', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Panceta y Huevo">
+                <div class="prod-info">
+                    <h4>Panceta y Huevo</h4>
+                    <p>Salsa, Muzzarella, Panceta, Huevo, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta y Huevo', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Champiñón">
+                <div class="prod-info">
+                    <h4>Champiñón</h4>
+                    <p>Salsa, Muzzarella, Champiñón, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Champiñón', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Calabresa y Cebolla">
+                <div class="prod-info">
+                    <h4>Calabresa y Cebolla</h4>
+                    <p>Salsa, Muzzarella, Calabresa, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Calabresa y Cebolla', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Napolitana y Choclo">
+                <div class="prod-info">
+                    <h4>Napolitana y Choclo</h4>
+                    <p>Salsa, Muzzarella, Tomate, Jamón, Choclo, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Napolitana y Choclo', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Margarita">
+                <div class="prod-info">
+                    <h4>Margarita</h4>
+                    <p>Salsa, Muzzarella, Tomate, Albahaca Fresca, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Margarita', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Panceta al Ajo">
+                <div class="prod-info">
+                    <h4>Panceta al Ajo</h4>
+                    <p>Salsa, Muzzarella, Panceta, Ajo, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta al Ajo', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Chorizo Picante">
+                <div class="prod-info">
+                    <h4>Chorizo Picante</h4>
+                    <p>Salsa, Muzzarella, Chorizo Picante, Ají, Aceituna, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Chorizo Picante', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Choclo Catupiry">
+                <div class="prod-info">
+                    <h4>Choclo Catupiry</h4>
+                    <p>Salsa, Muzzarella, Choclo, Catupiry, Orégano.</p>
+                    <span class="prod-price">Gs. 55.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Choclo Catupiry', 55000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Margarita al Ajo">
+                <div class="prod-info">
+                    <h4>Margarita al Ajo</h4>
+                    <p>Salsa, Muzzarella, Tomate, Ajo, Albahaca Fresca, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Margarita al Ajo', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Panchito Cheddar">
+                <div class="prod-info">
+                    <h4>Panchito Cheddar</h4>
+                    <p>Salsa, Muzzarella, Panchito, Cheddar, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panchito Cheddar', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Pepperoni Toscano">
+                <div class="prod-info">
+                    <h4>Pepperoni Toscano</h4>
+                    <p>Salsa, Muzzarella, Pepperoni, Perejil Fresco, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pepperoni Toscano', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Morrón">
+                <div class="prod-info">
+                    <h4>Morrón</h4>
+                    <p>Salsa, Muzzarella, Morrón (rojo-amarillo), Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Morrón', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Pollo Catupiry">
+                <div class="prod-info">
+                    <h4>Pollo Catupiry</h4>
+                    <p>Salsa, Muzzarella, Pollo Triturado, Catupiry, Aceitunas, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pollo Catupiry', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Panchito Encebollado">
+                <div class="prod-info">
+                    <h4>Panchito Encebollado</h4>
+                    <p>Salsa, Muzzarella, Panchito, Cebolla Caramelizada, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panchito Encebollado', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Choclo, Jamón y Panceta">
+                <div class="prod-info">
+                    <h4>Choclo, Jamón y Panceta</h4>
+                    <p>Salsa, Muzzarella, Choclo, Jamón, Panceta, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Choclo, Jamón y Panceta', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Panceta Encebollada">
+                <div class="prod-info">
+                    <h4>Panceta Encebollada</h4>
+                    <p>Salsa, Muzzarella, Panceta, Cebolla Caramelizada, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta Encebollada', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Panceta y Cheddar">
+                <div class="prod-info">
+                    <h4>Panceta y Cheddar</h4>
+                    <p>Salsa, Muzzarella, Panceta, Cheddar, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta y Cheddar', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Pollo Con Barbacoa">
+                <div class="prod-info">
+                    <h4>Pollo Con Barbacoa</h4>
+                    <p>Salsa, Muzzarella, Pollo Triturado, Barbacoa, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pollo Con Barbacoa', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Chesseburguer">
+                <div class="prod-info">
+                    <h4>Chesseburguer</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Carne de Hamburguesa, Barbacoa, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Chesseburguer', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Pepperoni y Cheddar">
+                <div class="prod-info">
+                    <h4>Pepperoni y Cheddar</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Pepperoni, Orégano.</p>
+                    <span class="prod-price">Gs. 60.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pepperoni y Cheddar', 60000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Panceta, Calabresa y Ajo">
+                <div class="prod-info">
+                    <h4>Panceta, Calabresa y Ajo</h4>
+                    <p>Salsa, Muzzarella, Panceta, Calabresa, Ajo, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Panceta, Calabresa y Ajo', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Queso Azul y Nueces">
+                <div class="prod-info">
+                    <h4>Queso Azul y Nueces</h4>
+                    <p>Salsa, Muzzarella, Azul, Nueces, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Queso Azul y Nueces', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Portuguesa">
+                <div class="prod-info">
+                    <h4>Portuguesa</h4>
+                    <p>Salsa, Muzzarella, Jamón, Locote Verde, Choclo, Palmito, Huevo, Aceituna, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Portuguesa', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Napolitana Especial">
+                <div class="prod-info">
+                    <h4>Napolitana Especial</h4>
+                    <p>Salsa, Muzzarella, Jamón, Tomate, Locote Verde, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Napolitana Especial', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" alt="Vegetariana">
+                <div class="prod-info">
+                    <h4>Vegetariana</h4>
+                    <p>Salsa, Muzzarella, Choclo, Tomate, Aceituna, Cebolla Morada, Morrón Rojo-Amarillo, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Vegetariana', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=200" alt="Primavera">
+                <div class="prod-info">
+                    <h4>Primavera</h4>
+                    <p>Salsa, Queso Muzzarella, Jamón, Tomate, Huevo, Aceitunas, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Primavera', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Mediterránea">
+                <div class="prod-info">
+                    <h4>Mediterránea</h4>
+                    <p>Salsa, Muzzarella, Tomate Cherry, Aceitunas Negras, Albahaca Fresca, Orégano.</p>
+                    <span class="prod-price">Gs. 65.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Mediterránea', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: PANCHOS (CON SU TÍTULO Y APARTADO BIEN DEFINIDO) -->
+        <h2 class="section-title">PANCHOS</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Clásico">
+                <div class="prod-info">
+                    <h4>Pancho Clásico</h4>
+                    <p>Mayonesa, Kétchup, Papitas.</p>
+                    <span class="prod-price">Gs. 15.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Clásico', 15000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Muzzarella">
+                <div class="prod-info">
+                    <h4>Pancho Muzzarella</h4>
+                    <p>Salsa, Muzzarella, Aceituna, Papitas, Orégano.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Muzzarella', 20000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Cheddar y Panceta">
+                <div class="prod-info">
+                    <h4>Pancho Cheddar y Panceta</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Panceta, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Cheddar y Panceta', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Cheddar y Pepperoni">
+                <div class="prod-info">
+                    <h4>Pancho Cheddar y Pepperoni</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Pepperoni, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Cheddar y Pepperoni', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Napolitano">
+                <div class="prod-info">
+                    <h4>Pancho Napolitano</h4>
+                    <p>Salsa, Muzzarella, Jamón, Tomate Cherry, Aceituna, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Napolitano', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Jamorrón">
+                <div class="prod-info">
+                    <h4>Pancho Jamorrón</h4>
+                    <p>Salsa, Muzzarella, Jamón, Morrón, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Jamorrón', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Americano">
+                <div class="prod-info">
+                    <h4>Pancho Americano</h4>
+                    <p>Salsa, Muzzarella, Cheddar, Pepinillo, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Americano', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Italiano">
+                <div class="prod-info">
+                    <h4>Pancho Italiano</h4>
+                    <p>Salsa, Muzzarella, Pepperoni, Albahaca Fresca, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Italiano', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Criollo">
+                <div class="prod-info">
+                    <h4>Pancho Criollo</h4>
+                    <p>Salsa, Muzzarella, Cebolla Caramelizada, Panceta, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Criollo', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Choripancho">
+                <div class="prod-info">
+                    <h4>Pancho Choripancho</h4>
+                    <p>Salsa, Muzzarella, Chorizo Picante, Ají, Cebolla Morada, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Choripancho', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Choclo">
+                <div class="prod-info">
+                    <h4>Pancho Choclo</h4>
+                    <p>Salsa, Muzzarella, Choclo, Catupiry, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Choclo', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Especial">
+                <div class="prod-info">
+                    <h4>Pancho Especial</h4>
+                    <p>Salsa, Muzzarella, Jamón, Huevo Picado, Mayonesa, Orégano.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Especial', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Pancho Hawaiana">
+                <div class="prod-info">
+                    <h4>Pancho Hawaiana</h4>
+                    <p>Salsa, Muzzarella, Jamón, Piña, Panceta, Cebolla Caramelizada, Orégano.</p>
+                    <span class="prod-price">Gs. 30.000</span>
+                    <button class="btn-pedir" onclick="updateQty('Pancho Hawaiana', 30000, 1)">PEDIR</button>
+                </div>
+            </div>
+        </section>
+  <div style="text-align: center; padding: 15px 0;">
+    <!-- Redes Sociales (Iconos limpios) -->
+    <div class="social-icons" style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 12px;">
+        <a href="https://www.facebook.com/share/19Axc55VUv/?mibextid=wwXIfr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/zoridelivery?igsh=MXFobTh4amJndnNyeQ%3D%3D&utm_source=qr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/595982309464" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Créditos -->
+    <div class="scalat-credits" style="font-size: 0.8rem; color: #666;">
+        Desarrollado por <code><span>Sclat tech</span></code>
+    </div>
+</div>
+</div>    
+
+    </div> 
+</body>
+</html>
+<!-- SDK de Firebase App (Compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+
+<!-- 2. SDK de Firebase Analytics -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+<!-- 3. SDK de Firestore (para los pedidos) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- 4. Tu archivo de configuración de Firebase -->
+
+
+<!-- 5. Tu archivo de lógica principal -->
+<script src="js.js"></script>
+    </div>
+</body>
+</html>

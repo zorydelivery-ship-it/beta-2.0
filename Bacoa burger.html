@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>bacoa burger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- Header con botón Volver -->
+       <!-- Banner del Local con el Botón Flotante Integrado -->
+<section class="promo-banner" style="position: relative;">
+    <a href="index.html" class="back-home-btn-float">
+        <i class="fa-solid fa-store"></i> Ver más
+    </a>
+    <img src="bacoa.webp" alt="Banner del Local">
+</section>
+
+        <!-- CATEGORÍA: HAMBURGUESAS -->
+        <h2 class="section-title" id="sec-hamburguesas">HAMBURGUESAS</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Carnívora</h4>
+                    <p>Pan artesanal, triple carne, panceta, cebolla morada, locote rojo, mozzarella y cheddar.</p>
+                    <span class="prod-price">Gs. 30.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Carnívora', 30000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>De la Casa</h4>
+                    <p>Pan artesanal, doble carne, mozzarella, cheddar, tomate, lechuga, cebolla morada y salsa barbacoa.</p>
+                    <span class="prod-price">Gs. 26.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa De la Casa', 26000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Completa</h4>
+                    <p>Pan artesanal, medallón de carne de 130gr., mozzarella, panceta, tomate, lechuga, cebolla morada, mayonesa y salsa de ajo.</p>
+                    <span class="prod-price">Gs. 24.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Completa', 24000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Simple</h4>
+                    <p>Pan artesanal, carne, lechuga, tomate, huevo, jamón, queso y salsa de ajo.</p>
+                    <span class="prod-price">Gs. 22.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Simple', 22000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Cheddar</h4>
+                    <p>Pan artesanal, medallón de carne, panceta, doble cheddar, mayonesa y salsa de ajo.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Cheddar', 20000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Barbacoa</h4>
+                    <p>Pan artesanal, medallón de carne, pepinillo, salsa barbacoa, queso y salsa de ajo.</p>
+                    <span class="prod-price">Gs. 20.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Barbacoa', 20000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Hambur Kids</h4>
+                    <p>Pan artesanal, carne de 100 gr. y doble cheddar.</p>
+                    <span class="prod-price">Gs. 16.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hambur Kids', 16000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Hamburpizza</h4>
+                    <p>Pan baguette, doble carne, pepperoni, mozzarella, jamón, lechuga, huevo, tomate, mayonesa, orégano y salsa p/ pizza.</p>
+                    <span class="prod-price">Gs. 37.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburpizza', 37000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Doble Carne</h4>
+                    <p>Doble carne, doble cheddar, cebolla morada, panceta y mayonesa.</p>
+                    <span class="prod-price">Gs. 25.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Doble Carne', 25000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Oklahoma</h4>
+                    <p>Doble carne, salsa barbacoa, cebolla, doble cheddar, panceta y pepinillo.</p>
+                    <span class="prod-price">Gs. 26.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Hamburguesa Oklahoma', 26000)">PEDIR</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATEGORÍA: LOMITOS Y SÁNDWICHES -->
+        <h2 class="section-title">LOMITOS Y SÁNDWICHES</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Árabe de Picaña</h4>
+                    <p>Pan árabe, carne de picaña, lechuga, morron</p>
+                    <span class="prod-price">Gs. 35.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Árabe de Picaña', 35000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Sándwich de Picaña</h4>
+                    <p>Pan baguette, carne de picaña, doble queso, tomate, lechuga y salsa de ajo.</p>
+                    <span class="prod-price">Gs. 40.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Sándwich de Picaña', 40000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Especial</h4>
+                    <p>Pan baguette, carne picada, locote rojo, cebolla morada, cheddar, mozzarella, mostaza-mayonesa y picante.</p>
+                    <span class="prod-price">Gs. 35.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Sándwich Especial', 35000)">PEDIR</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATEGORÍA: ESPECIALIDADES DE PICAÑA -->
+        <h2 class="section-title">ESPECIALIDADES DE PICAÑA</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Picada de Picaña Personal</h4>
+                    <p>Carne de picaña, papas fritas y chorizo.</p>
+                    <div style="margin: 8px 0; display:flex; flex-direction:column; gap:4px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:0.85rem; color:#555;">Opción 1</span>
+                            <span class="prod-price">Gs. 70.000</span>
+                            <button class="btn-pedir" style="padding:4px 10px; font-size:0.8rem;" onclick="agregarAlCarrito('Picada de Picaña Personal (Opción 1)', 70000)">PEDIR</button>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:0.85rem; color:#555;">Opción 2</span>
+                            <span class="prod-price">Gs. 90.000</span>
+                            <button class="btn-pedir" style="padding:4px 10px; font-size:0.8rem;" onclick="agregarAlCarrito('Picada de Picaña Personal (Opción 2)', 90000)">PEDIR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Picaña al Plato</h4>
+                    <p>Filete de picaña, cebolla, tomate y lechuga.</p>
+                    <span class="prod-price">Gs. 40.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Picaña al Plato', 40000)">PEDIR</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATEGORÍA: PAPAS Y ACOMPAÑAMIENTOS -->
+        <h2 class="section-title">PAPAS Y ACOMPAÑAMIENTOS</h2>
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Papa Frita Simple</h4>
+                    <div style="margin: 8px 0; display:flex; flex-direction:column; gap:4px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:0.85rem; color:#555;">Porción Chica</span>
+                            <span class="prod-price">Gs. 13.000</span>
+                            <button class="btn-pedir" style="padding:4px 10px; font-size:0.8rem;" onclick="agregarAlCarrito('Papa Frita Simple (Chica)', 13000)">PEDIR</button>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:0.85rem; color:#555;">Porción Grande</span>
+                            <span class="prod-price">Gs. 20.000</span>
+                            <button class="btn-pedir" style="padding:4px 10px; font-size:0.8rem;" onclick="agregarAlCarrito('Papa Frita Simple (Grande)', 20000)">PEDIR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Papa Frita con Cheddar y Panceta</h4>
+                    <span class="prod-price">Gs. 23.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Papa Frita con Cheddar y Panceta', 23000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Papas Bacoa</h4>
+                    <p>Papas fritas, mozzarella, cheddar, carne, locote rojo y cebolla morada.</p>
+                    <span class="prod-price">Gs. 35.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Papas Bacoa', 35000)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="prod-info">
+                    <h4>Salchipapas</h4>
+                    <p>Papas fritas, rodajas de pancho y cheddar.</p>
+                    <span class="prod-price">Gs. 23.000</span>
+                    <button class="btn-pedir" onclick="agregarAlCarrito('Salchipapas', 23000)">PEDIR</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATEGORÍA: AGREGADOS -->
+        <h2 class="section-title">AGREGADOS</h2>
+        <section class="products-grid">
+            <div class="product-card"><div class="prod-info"><h4>Huevo</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Huevo', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Pepinillo</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Pepinillo', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Cebolla Morada</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Cebolla Morada', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Locote Rojo</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Locote Rojo', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Cheddar</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Cheddar', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Mozzarella</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Mozzarella', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Jamón</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Jamón', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Panceta</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Panceta', 4000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Salsas</h4><span class="prod-price">Gs. 4.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Agregado: Salsas', 4000)">PEDIR</button></div></div>
+        </section>
+
+        <!-- CATEGORÍA: BEBIDAS -->
+        <h2 class="section-title">BEBIDAS</h2>
+        <section class="products-grid">
+            <div class="product-card"><div class="prod-info"><h4>Coca Cola 1.5L</h4><span class="prod-price">Gs. 12.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Coca Cola 1.5L', 12000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Coca Cola 1L</h4><span class="prod-price">Gs. 9.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Coca Cola 1L', 9000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Coca Cola 500ML</h4><span class="prod-price">Gs. 8.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Coca Cola 500ML', 8000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Coca Cola Lata</h4><span class="prod-price">Gs. 8.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Coca Cola Lata', 8000)">PEDIR</button></div></div>
+        </section>
+
+        <!-- CATEGORÍA: CERVEZAS Y TRAGOS -->
+        <h2 class="section-title">CERVEZAS Y TRAGOS</h2>
+        <section class="products-grid">
+            <div class="product-card"><div class="prod-info"><h4>Heineken 650ml</h4><span class="prod-price">Gs. 18.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Heineken 650ml', 18000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Miller 600ml</h4><span class="prod-price">Gs. 17.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Miller 600ml', 17000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Stella Artois 600ml</h4><span class="prod-price">Gs. 17.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Stella Artois 600ml', 17000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Corona 710ml</h4><span class="prod-price">Gs. 18.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Corona 710ml', 18000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Caipiriña 700ml</h4><span class="prod-price">Gs. 20.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Caipiriña 700ml', 20000)">PEDIR</button></div></div>
+            <div class="product-card"><div class="prod-info"><h4>Fernet</h4><span class="prod-price">Gs. 20.000</span><button class="btn-pedir" onclick="agregarAlCarrito('Fernet', 20000)">PEDIR</button></div></div>
+        </section>
+
+  <div style="text-align: center; padding: 15px 0;">
+    <!-- Redes Sociales (Iconos limpios) -->
+<div class="social-icons" style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 12px;">
+        <a href="https://www.facebook.com/share/19Axc55VUv/?mibextid=wwXIfr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/zoridelivery?igsh=MXFobTh4amJndnNyeQ%3D%3D&utm_source=qr" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/595982309464" target="_blank" style="color: #333333; font-size: 24px; text-decoration: none;">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Créditos -->
+    <div class="scalat-credits" style="font-size: 0.8rem; color: #666;">
+        Desarrollado por <code><span>Sclat tech</span></code>
+    </div>
+</div>
+</div>
+
+    <!-- SDK de Firebase App (Compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+
+<!-- 2. SDK de Firebase Analytics -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+<!-- 3. SDK de Firestore (para los pedidos) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- 4. Tu archivo de configuración de Firebase -->
+
+<!-- 5. Tu archivo de lógica principal -->
+<script src="js.js"></script>
+</body>
+</html>
