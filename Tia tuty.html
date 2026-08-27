@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pizzería Tía Tuti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+
+<!-- Banner del Local con el Logo Centrado y Espaciado Estilo Bacoa -->
+<div class="banner-container" style="position: relative; background-color: #ff6600; text-align: center; padding: 35px 20px; overflow: hidden;">
+    
+    <!-- Botón flotante "Ver más" -->
+    <a href="index.html" class="back-home-btn" style="position: absolute; top: 15px; left: 15px; z-index: 10; background: #b84313; color: #ffffff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+        <i class="fa-solid fa-store"></i> Ver más
+    </a>
+
+    <!-- Contenedor del Logo con tamaño controlado y centrado -->
+    <div style="position: relative; z-index: 2; max-width: 220px; margin: 0 auto;">
+        <img src="tia tuty logo.jpeg" alt="Logo Pizzería Tía Tuti" style="width: 100%; height: auto; object-fit: contain; display: block; margin: 0 auto;">
+    </div>
+</div>
+        <!-- CATEGORÍA: PIZZAS -->
+        <h2 class="category-title">PIZZAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Pizza Muzzarella">
+                <div class="product-info">
+                    <h3>Muzzarella</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, aceituna, orégano).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 25.000 / 40.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Muzzarella (Personal)', 25000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Muzzarella (Normal)', 40000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" alt="Pizza Napolitana">
+                <div class="product-info">
+                    <h3>Napolitana</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, jamón, tomate, aceituna).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 25.000 / 40.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Napolitana (Personal)', 25000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Napolitana (Normal)', 40000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200" alt="Pizza Choclo">
+                <div class="product-info">
+                    <h3>Choclo</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, choclo, catupiry).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 25.000 / 40.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Choclo (Personal)', 25000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Choclo (Normal)', 40000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200" alt="Pizza Margarita">
+                <div class="product-info">
+                    <h3>Margarita</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, tomate, orégano).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 25.000 / 40.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Margarita (Personal)', 25000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Margarita (Normal)', 40000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=200" alt="Pizza Mixta">
+                <div class="product-info">
+                    <h3>Mixta</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, jamón, orégano).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 25.000 / 40.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Mixta (Personal)', 25000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Mixta (Normal)', 40000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200" alt="Pizza Peperoni">
+                <div class="product-info">
+                    <h3>Peperoni</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, peperoni, orégano).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 30.000 / 45.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Peperoni (Personal)', 30000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Peperoni (Normal)', 45000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Pizza Atún">
+                <div class="product-info">
+                    <h3>Atún</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, atún, orégano).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 30.000 / 45.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Atún (Personal)', 30000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Atún (Normal)', 45000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Cuatro Quesos">
+                <div class="product-info">
+                    <h3>Cuatro Quesos</h3>
+                    <p class="product-desc">Personal / Normal (Muzzarella, cheddar, catupiry, queso py).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 30.000 / 45.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Cuatro Quesos (Personal)', 30000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Cuatro Quesos (Normal)', 45000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=200" alt="Pollo Catupiry">
+                <div class="product-info">
+                    <h3>Pollo Catupiry</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, pollo, catupiry).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 50.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pollo Catupiry (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pollo Catupiry (Normal)', 50000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Mexicana">
+                <div class="product-info">
+                    <h3>Mexicana</h3>
+                    <p class="product-desc">Personal / Normal (Carne picante, morrón, catupiry).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 50.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Mexicana (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Mexicana (Normal)', 50000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Portuguesa">
+                <div class="product-info">
+                    <h3>Portuguesa</h3>
+                    <p class="product-desc">Personal / Normal (Cebolla/morrón salteados, huevo, aceitunas).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 55.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Portuguesa (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Portuguesa (Normal)', 55000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Palmito">
+                <div class="product-info">
+                    <h3>Palmito</h3>
+                    <p class="product-desc">Personal / Normal (Salsa, muzzarella, palmito, catupiry).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 50.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Palmito (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Palmito (Normal)', 50000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Especial de la Casa">
+                <div class="product-info">
+                    <h3>Especial de la Casa</h3>
+                    <p class="product-desc">Personal / Normal (Salchichas, cebolla y morrón salteado).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 50.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Especial (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Especial (Normal)', 50000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Carnívora">
+                <div class="product-info">
+                    <h3>Carnívora</h3>
+                    <p class="product-desc">Personal / Normal (Carne, salchichas, jamón, peperoni, pollo).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 45.000 / 85.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Carnívora (Personal)', 45000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Carnívora (Normal)', 85000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Tía Tuti">
+                <div class="product-info">
+                    <h3>Pizza Tía Tuti</h3>
+                    <p class="product-desc">Personal / Normal (Lomito, morrón, cebolla, catupiry).</p>
+                    <div class="price-container">
+                        <span class="price">Gs. 35.000 / 60.000</span>
+                    </div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Tía Tuti (Personal)', 35000, 1)">Pers.</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Pizza Tía Tuti (Normal)', 60000, 1)">Norm.</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: HAMBURGUESAS CASERAS -->
+        <h2 class="category-title">HAMBURGUESAS CASERAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Hamburguesa Clásica">
+                <div class="product-info">
+                    <h3>Hamburguesa Clásica</h3>
+                    <p class="product-desc">Pan Gourmet, mayonesa, tomate, lechuga, carne, jamón, cheddar, huevo.</p>
+                    <div class="price-container"><span class="price">Gs. 15.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburguesa Clásica', 15000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=200" alt="Hamburguesa Doble Carne">
+                <div class="product-info">
+                    <h3>Hamburguesa Doble Carne</h3>
+                    <p class="product-desc">Pan Gourmet, mayonesa, tomate, lechuga, dos carnes, jamón, cheddar, huevo.</p>
+                    <div class="price-container"><span class="price">Gs. 23.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburguesa Doble Carne', 23000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=200" alt="Hamburguesa Tía Tuti">
+                <div class="product-info">
+                    <h3>Hamburguesa Tía Tuti</h3>
+                    <p class="product-desc">Pan Gourmet, doble carne, doble cheddar, huevo, panceta, choclo, lechuga, tomate.</p>
+                    <div class="price-container"><span class="price">Gs. 30.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburguesa Tía Tuti', 30000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Hamburguesa Completa">
+                <div class="product-info">
+                    <h3>Hamburguesa Completa</h3>
+                    <p class="product-desc">Pan Gourmet, carne, huevo, cheddar, jamón, lechuga, tomate, papas fritas.</p>
+                    <div class="price-container"><span class="price">Gs. 25.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburguesa Completa', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: LOMITOS Y LOMIPIZZAS -->
+        <h2 class="category-title">LOMITOS Y LOMIPIZZAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=200" alt="Sandw. de Lomito">
+                <div class="product-info">
+                    <h3>Sandw. de Lomito</h3>
+                    <p class="product-desc">Pan baguette, lomito, huevo, jamón, cheddar, tomate, lechuga.</p>
+                    <div class="price-container"><span class="price">Gs. 25.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Sandw. de Lomito', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Lomipizza Personal">
+                <div class="product-info">
+                    <h3>Lomipizza Personal</h3>
+                    <p class="product-desc">Pan, lomito, huevo, cheddar, queso, peperoni, tomate, lechuga, jamón.</p>
+                    <div class="price-container"><span class="price">Gs. 32.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Lomipizza Personal', 32000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Lomipizza Grande">
+                <div class="product-info">
+                    <h3>Lomipizza Grande</h3>
+                    <p class="product-desc">4 porciones (Pan, lomito, huevo, cheddar, queso, peperoni, jamón).</p>
+                    <div class="price-container"><span class="price">Gs. 70.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Lomipizza Grande', 70000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Lomipizza Familiar">
+                <div class="product-info">
+                    <h3>Lomipizza Familiar</h3>
+                    <p class="product-desc">8 porciones (Pan, lomito, huevo, cheddar, queso, peperoni, jamón).</p>
+                    <div class="price-container"><span class="price">Gs. 125.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Lomipizza Familiar', 125000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: HAMBURPIZZAS -->
+        <h2 class="category-title">HAMBURPIZZAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Hamburpizza Personal">
+                <div class="product-info">
+                    <h3>Hamburpizza Personal</h3>
+                    <p class="product-desc">Pan baguette, doble carne, cheddar, huevo, muzzarella, peperoni.</p>
+                    <div class="price-container"><span class="price">Gs. 30.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburpizza Personal', 30000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Hamburpizza Grande">
+                <div class="product-info">
+                    <h3>Hamburpizza Grande</h3>
+                    <p class="product-desc">4 porciones (Pan, carne, huevo, cheddar, jamón, muzzarella).</p>
+                    <div class="price-container"><span class="price">Gs. 65.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburpizza Grande', 65000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Hamburpizza Familiar">
+                <div class="product-info">
+                    <h3>Hamburpizza Familiar</h3>
+                    <p class="product-desc">8 porciones (Pan, carne, huevo, cheddar, jamón, muzzarella).</p>
+                    <div class="price-container"><span class="price">Gs. 120.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Hamburpizza Familiar', 120000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: ÁRABES Y ESPECIALIDADES -->
+        <h2 class="category-title">ÁRABES Y ESPECIALIDADES</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=200" alt="Árabe de Pollo">
+                <div class="product-info">
+                    <h3>Árabe de Pollo</h3>
+                    <p class="product-desc">Pollo, repollo, tomate, queso muzzarella, salsa.</p>
+                    <div class="price-container"><span class="price">Gs. 25.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Árabe de Pollo', 25000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=200" alt="Árabe Mixto">
+                <div class="product-info">
+                    <h3>Árabe Mixto</h3>
+                    <p class="product-desc">Lomito, pollo, queso muzzarella, repollo, salsa, tomate, carne.</p>
+                    <div class="price-container"><span class="price">Gs. 28.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Árabe Mixto', 28000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200" alt="Churrasco Griego">
+                <div class="product-info">
+                    <h3>Churrasco Griego</h3>
+                    <p class="product-desc">Pan baguette, lomito, pollo, repollo, tomate, muzzarella, catupiry.</p>
+                    <div class="price-container"><span class="price">Gs. 28.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Churrasco Griego', 28000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=200" alt="Pollo Frito">
+                <div class="product-info">
+                    <h3>Pollo Frito</h3>
+                    <p class="product-desc">Porción de pollo frito crujiente.</p>
+                    <div class="price-container"><span class="price">Gs. 30.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Pollo Frito', 30000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: PICADAS Y MILAS -->
+        <h2 class="category-title">PICADAS Y MILAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=200" alt="Picada Pequeña">
+                <div class="product-info">
+                    <h3>Picada Pequeña</h3>
+                    <p class="product-desc">Milanesas, papas, jamón, queso, croquetas, aceitunas.</p>
+                    <div class="price-container"><span class="price">Gs. 50.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Picada Pequeña', 50000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=200" alt="Picada Mediana">
+                <div class="product-info">
+                    <h3>Picada Mediana</h3>
+                    <p class="product-desc">Chorizos, mandioca, milanesas, papas, jamón, queso, croquetas.</p>
+                    <div class="price-container"><span class="price">Gs. 80.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Picada Mediana', 80000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=200" alt="Picada Grande">
+                <div class="product-info">
+                    <h3>Picada Grande</h3>
+                    <p class="product-desc">Chorizos, mandioca, milanesas, croquetas, papas, jamón, queso.</p>
+                    <div class="price-container"><span class="price">Gs. 100.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Picada Grande', 100000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Milapizza">
+                <div class="product-info">
+                    <h3>Milapizza (Pollo / Carne)</h3>
+                    <p class="product-desc">Con salsa, queso, jamón, tomate, aceitunas, mandioca y papas.</p>
+                    <div class="price-container"><span class="price">Gs. 45.000 / 50.000</span></div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Milapizza Pollo', 45000, 1)">Pollo</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Milapizza Carne', 50000, 1)">Carne</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200" alt="Milanesas con guarnición">
+                <div class="product-info">
+                    <h3>Milanesa c/guarnición</h3>
+                    <p class="product-desc">Acompañado con huevo, mandioca y papas fritas.</p>
+                    <div class="price-container"><span class="price">Gs. 45.000 / 50.000</span></div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Milanesa Pollo Completa', 45000, 1)">Pollo</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Milanesa Carne Completa', 50000, 1)">Carne</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CATEGORÍA: MINUTAS Y EXTRAS -->
+        <h2 class="category-title">MINUTAS Y EXTRAS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Super Pancho">
+                <div class="product-info">
+                    <h3>Super Pancho</h3>
+                    <p class="product-desc">Pan de pancho con salchicha y salsas.</p>
+                    <div class="price-container"><span class="price">Gs. 15.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Super Pancho', 15000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=200" alt="Super Pancho a la Pizza">
+                <div class="product-info">
+                    <h3>Super Pancho a la Pizza</h3>
+                    <p class="product-desc">Pancho cubierto con salsa y queso muzzarella gratinado.</p>
+                    <div class="price-container"><span class="price">Gs. 20.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Super Pancho a la Pizza', 20000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=200" alt="Sandw. de milanesas">
+                <div class="product-info">
+                    <h3>Sandw. de Milanesas</h3>
+                    <p class="product-desc">Sándwich de milanesa completo (Carne / Pollo).</p>
+                    <div class="price-container"><span class="price">Gs. 12.000 / 10.000</span></div>
+                    <div style="display: flex; gap: 5px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Sandw. Milanesa Carne', 12000, 1)">Carne</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 4px; font-size: 11px;" onclick="updateQty('Sandw. Milanesa Pollo', 10000, 1)">Pollo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200" alt="Empanadas Caseras">
+                <div class="product-info">
+                    <h3>Empanadas Caseras</h3>
+                    <p class="product-desc">Carne y jamón / Pollo catupiry / Tradicional.</p>
+                    <div class="price-container"><span class="price">Gs. 5.000 - 6.000</span></div>
+                    <div style="display: flex; gap: 3px; margin-top: 8px;">
+                        <button class="btn-pedir" style="flex:1; padding: 8px 2px; font-size: 10px;" onclick="updateQty('Empanada Carne y Jamón', 6000, 1)">Carne/J</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 2px; font-size: 10px;" onclick="updateQty('Empanada Pollo Catupiry', 6000, 1)">Pollo/C</button>
+                        <button class="btn-pedir" style="flex:1; padding: 8px 2px; font-size: 10px;" onclick="updateQty('Empanada Tradicional', 5000, 1)">Trad.</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200" alt="Papas Fritas">
+                <div class="product-info">
+                    <h3>Papas Fritas</h3>
+                    <p class="product-desc">Porción de papas fritas crujientes.</p>
+                    <div class="price-container"><span class="price">Gs. 10.000</span></div>
+                    <button class="btn-pedir" onclick="updateQty('Papas Fritas Pequeña', 10000, 1)">PEDIR</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pie de página -->
+        <div style="text-align: center; padding: 20px 0;">
+            <div style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 12px;">
+                <a href="https://www.facebook.com" target="_blank" style="color: #333; font-size: 24px;"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" style="color: #333; font-size: 24px;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/595982309464" target="_blank" style="color: #333; font-size: 24px;"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div style="font-size: 0.8rem; color: #666666;">
+                Desarrollado por <code><span>Sclat tech</span></code>
+            </div>
+        </div>
+
+        <!-- Firebase y Scripts -->
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+        <script src="js.js"></script>
+    </div>
+</body>
+</html>
