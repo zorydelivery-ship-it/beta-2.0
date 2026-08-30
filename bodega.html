@@ -25,38 +25,29 @@
             padding: 32px 24px;
             box-shadow: 0 10px 25px rgba(234, 88, 12, 0.25);
             background-image: linear-gradient(to top, rgba(154, 52, 18, 0.9), rgba(249, 115, 22, 0.75)), 
-                              url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800');
+                            url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800');
             background-size: cover;
             background-position: center;
             margin-bottom: 24px;
         }
 
-        /* Tarjeta de Producto de Bodega */
-        .producto-card {
-            border: none;
-            border-radius: 16px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .producto-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
+        /* Contenedor Minimalista de la Foto del Producto */
         .producto-img-container {
-            height: 140px;
-            background: #f1f5f9;
+            height: 180px;
+            background: #ffffff;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .producto-img-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .producto-img-container img {
@@ -76,6 +67,7 @@
             background: rgba(0, 0, 0, 0.6);
             color: #fff;
             backdrop-filter: blur(4px);
+            z-index: 2;
         }
 
         /* Estilo de la Barra de Navegación Inferior Flotante */
@@ -143,446 +135,266 @@
         <span class="text-muted small">20 ítems disponibles</span>
     </div>
 
-    <!-- Cuadrícula de 20 Productos de Bodega -->
+    <!-- Cuadrícula de 20 Productos de Bodega (Solo Foto + Botón Directo) -->
     <div class="row g-3" id="catalogoBodega">
         
         <!-- 1. Pack Heineken -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cervezas</span>
-                    <img src="https://images.unsplash.com/photo-1608270198023-67c4495c5afd?w=400" alt="Pack Heineken">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Pack x6 Heineken Lata 350ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Bien fría ❄️</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 45.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x6 Heineken Lata 350ml', 'Gs. 45.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cervezas</span>
+                <img src="michelof pack.webp" alt="Pack Heineken">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Pack x6 Heineken Lata 350ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 45.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x6 Heineken Lata 350ml', 'Gs. 45.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 2. Pack Pilsen -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cervezas</span>
-                    <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400" alt="Pack Pilsen">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Pack x12 Pilsen Py 300ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Clásica paraguaya</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 75.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x12 Pilsen Py 300ml', 'Gs. 75.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cervezas</span>
+                <img src="michelof pack.webp" alt="Pack Pilsen">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Pack x12 Pilsen Py 300ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 75.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x12 Pilsen Py 300ml', 'Gs. 75.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 3. Pack Corona -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cervezas</span>
-                    <img src="https://images.unsplash.com/photo-1618885472179-5067208bc79e?w=400" alt="Pack Corona">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Pack x6 Corona Extra 330ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Incluye limones</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 65.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x6 Corona Extra 330ml', 'Gs. 65.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cervezas</span>
+                <img src="michelof pack.webp" alt="Pack Corona">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Pack x6 Corona Extra 330ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 65.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Pack x6 Corona Extra 330ml', 'Gs. 65.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 4. Vino San Telmo -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Vinos</span>
-                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400" alt="Vino San Telmo">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Vino San Telmo Malbec 750ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Ideal para asado</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 40.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Vino San Telmo Malbec 750ml', 'Gs. 40.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Vinos</span>
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400" alt="Vino San Telmo">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Vino San Telmo Malbec 750ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 40.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Vino San Telmo Malbec 750ml', 'Gs. 40.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 5. Fernet Branca -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Tragos</span>
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400" alt="Fernet Branca">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Fernet Branca 750ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">El rey del fernet</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 85.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Fernet Branca 750ml', 'Gs. 85.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Tragos</span>
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400" alt="Fernet Branca">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Fernet Branca 750ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 85.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Fernet Branca 750ml', 'Gs. 85.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 6. Vodka Smirnoff -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Tragos</span>
-                    <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400" alt="Vodka Smirnoff">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Vodka Smirnoff 750ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Triple destilado</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 55.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Vodka Smirnoff 750ml', 'Gs. 55.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Tragos</span>
+                <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400" alt="Vodka Smirnoff">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Vodka Smirnoff 750ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 55.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Vodka Smirnoff 750ml', 'Gs. 55.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 7. Whisky Johnnie Walker Red Label -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Whisky</span>
-                    <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=400" alt="Red Label">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Whisky Red Label 750ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Original importado</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 115.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Whisky Red Label 750ml', 'Gs. 115.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Whisky</span>
+                <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=400" alt="Red Label">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Whisky Red Label 750ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 115.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Whisky Red Label 750ml', 'Gs. 115.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 8. Gin Tanqueray -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Tragos</span>
-                    <img src="https://images.unsplash.com/photo-1607684073733-d1ea24bf745d?w=400" alt="Gin Tanqueray">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Gin Tanqueray 750ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">London Dry Gin</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 130.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Gin Tanqueray 750ml', 'Gs. 130.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Tragos</span>
+                <img src="https://images.unsplash.com/photo-1607684073733-d1ea24bf745d?w=400" alt="Gin Tanqueray">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Gin Tanqueray 750ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 130.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Gin Tanqueray 750ml', 'Gs. 130.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 9. Tequila Jose Cuervo -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Tragos</span>
-                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400" alt="Tequila">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Tequila Jose Cuervo Reposado</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">750ml con estilo</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 120.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Tequila Jose Cuervo Reposado', 'Gs. 120.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Tragos</span>
+                <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400" alt="Tequila">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Tequila Jose Cuervo Reposado</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 120.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Tequila Jose Cuervo Reposado', 'Gs. 120.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 10. Energizante Red Bull -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Mixers</span>
-                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400" alt="Red Bull">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Energizante Red Bull 250ml</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Para el fernet o solo</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 15.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Energizante Red Bull 250ml', 'Gs. 15.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Mixers</span>
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400" alt="Red Bull">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Energizante Red Bull 250ml</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 15.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Energizante Red Bull 250ml', 'Gs. 15.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 11. Agua Tónica Schweppes -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Mixers</span>
-                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="Agua Tonica">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Schweppes Tónica 1.5L</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Para el gin tonic</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 14.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Schweppes Tónica 1.5L', 'Gs. 14.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Mixers</span>
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="Agua Tonica">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Schweppes Tónica 1.5L</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 14.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Schweppes Tónica 1.5L', 'Gs. 14.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 12. Hielo en Bolsa -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Esenciales</span>
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Hielo">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Bolsa de Hielo 2kg</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Super congelado</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 10.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Bolsa de Hielo 2kg', 'Gs. 10.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Esenciales</span>
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Hielo">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Bolsa de Hielo 2kg</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 10.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Bolsa de Hielo 2kg', 'Gs. 10.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 13. Cigarrillos Kent -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cigarrillos</span>
-                    <img src="https://images.unsplash.com/photo-1527844116342-ea491df270e5?w=400" alt="Cigarrillos">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Cigarrillo Kent Switch Box</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Cajetilla x20</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 18.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Cigarrillo Kent Switch Box', 'Gs. 18.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cigarrillos</span>
+                <img src="https://images.unsplash.com/photo-1527844116342-ea491df270e5?w=400" alt="Cigarrillos">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Cigarrillo Kent Switch Box</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 18.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Cigarrillo Kent Switch Box', 'Gs. 18.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 14. Cigarrillos Marlboro -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cigarrillos</span>
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400" alt="Marlboro">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Cigarrillo Marlboro Box Rojo</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Cajetilla x20</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 20.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Cigarrillo Marlboro Box Rojo', 'Gs. 20.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cigarrillos</span>
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400" alt="Marlboro">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Cigarrillo Marlboro Box Rojo</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 20.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Cigarrillo Marlboro Box Rojo', 'Gs. 20.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 15. Preservativos Prudence -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cuidado</span>
-                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400" alt="Preservativos">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Preservativos Prudence x3</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Variedad clásica</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 12.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Preservativos Prudence x3', 'Gs. 12.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cuidado</span>
+                <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400" alt="Preservativos">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Preservativos Prudence x3</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 12.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Preservativos Prudence x3', 'Gs. 12.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 16. Preservativos Durex -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Cuidado</span>
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Durex">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Preservativos Durex Extra S. x3</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Máxima seguridad</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 22.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Preservativos Durex Extra S. x3', 'Gs. 22.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Cuidado</span>
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Durex">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Preservativos Durex Extra S. x3</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 22.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Preservativos Durex Extra S. x3', 'Gs. 22.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 17. Papas Lays Gigante -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Picadas</span>
-                    <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400" alt="Papas Fritas">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Papas Lays Gran Formato 250g</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Clásicas saladas</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 25.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Papas Lays Gran Formato 250g', 'Gs. 25.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Picadas</span>
+                <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400" alt="Papas Fritas">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Papas Lays Gran Formato 250g</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 25.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Papas Lays Gran Formato 250g', 'Gs. 25.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 18. Maní Salado -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Picadas</span>
-                    <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400" alt="Mani">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Maní Salado Crocante 200g</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">El acompañante ideal</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 8.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Maní Salado Crocante 200g', 'Gs. 8.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Picadas</span>
+                <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400" alt="Mani">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Maní Salado Crocante 200g</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 8.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Maní Salado Crocante 200g', 'Gs. 8.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 19. Gaseosa Coca Cola 2L -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Gaseosas</span>
-                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="Coca Cola">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Gaseosa Coca-Cola Descartable 2L</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Bien fría</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 14.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Gaseosa Coca-Cola Descartable 2L', 'Gs. 14.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Gaseosas</span>
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="Coca Cola">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Gaseosa Coca-Cola Descartable 2L</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 14.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Gaseosa Coca-Cola Descartable 2L', 'Gs. 14.000')">Pedir</button>
             </div>
         </div>
 
         <!-- 20. Fuego / Carbón Vegetal -->
         <div class="col-6 col-md-4">
-            <div class="producto-card">
-                <div class="producto-img-container">
-                    <span class="badge-categoria">Asado</span>
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Carbon">
-                </div>
-                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.9rem;">Bolsa de Carbón Vegetal 5kg</h6>
-                        <p class="text-muted small mb-2" style="font-size: 0.75rem;">Calidad superior</p>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-success mb-2" style="font-size: 0.95rem;">Gs. 25.000</div>
-                        <button class="btn btn-outline-success btn-sm w-100 rounded-pill fw-bold py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Bolsa de Carbón Vegetal 5kg', 'Gs. 25.000')">
-                            Pedir
-                        </button>
-                    </div>
-                </div>
+            <div class="producto-img-container mb-2">
+                <span class="badge-categoria">Asado</span>
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Carbon">
+            </div>
+            <h6 class="fw-bold text-dark mb-1 text-truncate" style="font-size: 0.85rem;">Bolsa de Carbón Vegetal 5kg</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success" style="font-size: 0.9rem;">Gs. 25.000</span>
+                <button class="btn btn-outline-success btn-sm rounded-pill fw-bold px-3 py-1" style="font-size: 0.75rem;" onclick="pedirProductoBodega('Bolsa de Carbón Vegetal 5kg', 'Gs. 25.000')">Pedir</button>
             </div>
         </div>
 
@@ -609,71 +421,13 @@
     </a>
 </nav>
 
-<!-- Modal Reseña Anónima -->
-<div id="modalReseña" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
-    <div style="background: #ffffff; padding: 25px; border-radius: 15px; width: 90%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: left; position: relative;">
-        <div id="formContainer">
-            <h3 style="margin-top: 0; text-align: center; color: #333;">Déjanos tu reseña</h3>
-            <p style="text-align: center; color: #777; font-size: 0.8rem;">100% anónima</p>
-            <form id="reseñaForm" onsubmit="enviarReseñaAnonima(event)" style="display: flex; flex-direction: column; gap: 12px;">
-                <input type="hidden" name="_subject" value="💬 Nueva Reseña Anónima - Zory Delivery">
-                <textarea id="mensajeReseña" name="mensaje" rows="4" placeholder="Escribe tu comentario aquí..." required style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Poppins', sans-serif; resize: none;"></textarea>
-                <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                    <button type="button" onclick="cerrarModalReseña()" style="padding: 8px 15px; border: none; border-radius: 8px; background: #e0e0e0; cursor: pointer;">Cancelar</button>
-                    <button type="submit" id="btnEnviar" style="padding: 8px 20px; border: none; border-radius: 8px; background: #25D366; color: #fff; cursor: pointer;">Enviar</button>
-                </div>
-            </form>
-        </div>
-        <div id="mensajeExito" style="display: none; text-align: center; padding: 20px 0;">
-            <div style="font-size: 3rem; color: #25D366; margin-bottom: 10px;">✓</div>
-            <h3 style="color: #333;">¡Reseña enviada con éxito!</h3>
-            <button onclick="cerrarModalReseña()" style="padding: 8px 25px; border: none; border-radius: 8px; background: #25D366; color: #fff; cursor: pointer;">Aceptar</button>
-        </div>
-        <button onclick="cerrarModalReseña()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #888;">&times;</button>
-    </div>
-</div>
-
-<!-- Scripts -->
+<!-- Script para pedidos -->
 <script>
-    function pedirProductoBodega(nombreProducto, precio) {
-        const numeroWhatsApp = "595982309464";
-        const mensaje = `Hola! 🍻 Vengo desde la sección de Bodega y quiero pedir:\n\n*${nombreProducto}* - ${precio}\n\nQuedo atento para confirmar mi ubicación y el envío. ¡Gracias!`;
-        
-        const urlWp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-        window.open(urlWp, '_blank');
-    }
-
-    function abrirModalReseña() {
-        document.getElementById('formContainer').style.display = 'block';
-        document.getElementById('mensajeExito').style.display = 'none';
-        document.getElementById('mensajeReseña').value = '';
-        document.getElementById('modalReseña').style.display = 'flex';
-    }
-    
-    function cerrarModalReseña() {
-        document.getElementById('modalReseña').style.display = 'none';
-    }
-    
-    function enviarReseñaAnonima(event) {
-        event.preventDefault();
-        const formData = new FormData(document.getElementById('reseñaForm'));
-        const btn = document.getElementById('btnEnviar');
-        btn.innerText = 'Enviando...';
-        btn.disabled = true;
-
-        fetch('https://formsubmit.co/ajax/zorydelivery@gmail.com', { method: 'POST', body: formData })
-        .then(res => res.json())
-        .then(() => {
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('mensajeExito').style.display = 'block';
-            btn.innerText = 'Enviar';
-            btn.disabled = false;
-        })
-        .catch(() => {
-            alert('Error al enviar. Inténtalo de nuevo.');
-            btn.innerText = 'Enviar';
-            btn.disabled = false;
-        });
+    function pedirProductoBodega(nombre, precio) {
+        const telefono = "595982309464"; // Tu número de WhatsApp
+        const mensaje = `Hola! Quiero pedir de la Bodega:\n*${nombre}* - ${precio}`;
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
     }
 </script>
 
