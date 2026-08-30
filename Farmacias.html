@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salud y Bienestar - Farmacias</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -25,7 +23,7 @@
             padding: 24px;
             box-shadow: 0 10px 25px rgba(13, 148, 136, 0.25);
             background-image: linear-gradient(to top, rgba(6, 95, 70, 0.95), rgba(13, 148, 136, 0.8)), 
-                              url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600');
+                            url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600');
             background-size: cover;
             background-position: center;
             cursor: pointer;
@@ -78,13 +76,11 @@
 <body>
 
 <div class="container py-3">
-    <!-- Título de sección -->
     <div class="mb-3">
         <h4 class="fw-bold text-dark m-0" style="letter-spacing: -0.5px;">Salud y Bienestar 🌿</h4>
         <p class="text-muted small m-0">Medicamentos y productos farmacéuticos con entrega a domicilio</p>
     </div>
 
-    <!-- Tarjeta Principal de la Farmacia -->
     <div class="farmacia-hero-card" onclick="cargarLocal('farmacia central ayolas')">
         <div class="d-flex justify-content-between align-items-start">
             <div>
@@ -107,15 +103,14 @@
         </div>
     </div>
 
-    <!-- Apartado Interactivo: Receta / Pedido Personalizado por WhatsApp -->
     <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4" style="border: 2px solid #bbf7d0 !important;">
         <div class="d-flex align-items-center gap-3 mb-3">
             <div class="bg-success bg-opacity-10 text-success rounded-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
                 <i class="fas fa-file-medical fs-5"></i>
             </div>
             <div>
-                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">¿Buscas algo específico o tienes receta?</h6>
-                <p class="text-muted small m-0">Escribe lo que necesitas o adjunta una foto para cotizar al instante.</p>
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">¿Buscas algo específico?</h6>
+                <p class="text-muted small m-0">Escribe los detalles del remedio o indicaciones para cotizar al instante.</p>
             </div>
         </div>
 
@@ -123,26 +118,14 @@
             <textarea id="pedidoFarmaciaTexto" class="form-control rounded-3 border-light bg-light text-dark p-3" rows="3" placeholder="Ej: Necesito 1 caja de Paracetamol 500mg..."></textarea>
         </div>
 
-        <div class="row g-2 align-items-center">
-            <div class="col-6">
-                <label for="fotoRecetaInput" class="btn btn-outline-success w-100 rounded-pill py-2 small fw-bold d-flex align-items-center justify-content-center gap-2 mb-0" style="cursor: pointer;">
-                    <i class="fas fa-camera"></i> <span id="labelFotoText">Elegir Foto</span>
-                </label>
-                <input type="file" id="fotoRecetaInput" accept="image/*" capture="environment" class="d-none" onchange="actualizarNombreArchivo(this)">
-            </div>
-            <div class="col-6">
-                <button class="btn btn-success w-100 rounded-pill py-2 small fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="enviarPedidoFarmaciaWhatsApp()">
-                    <i class="fab fa-whatsapp fs-6"></i> Enviar Pedido
-                </button>
-            </div>
-        </div>
-        <div class="form-text text-muted text-center mt-2" style="font-size: 0.75rem;">
-            * Al abrirse WhatsApp, podrás adjuntar y enviar tu foto directamente en el chat.
+        <div>
+            <button class="btn btn-success w-100 rounded-pill py-2 small fw-bold shadow-sm" onclick="enviarPedidoFarmaciaWhatsApp()">
+                Pedir
+            </button>
         </div>
     </div>
 </div>
 
-<!-- Barra de Navegación Inferior Flotante -->
 <nav class="bottom-nav">
     <a href="index.html" class="nav-item active">
         <i class="fa-solid fa-house"></i>
@@ -162,7 +145,6 @@
     </a>
 </nav>
 
-<!-- Modal Reseña Anónima -->
 <div id="modalReseña" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: #ffffff; padding: 25px; border-radius: 15px; width: 90%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: left; position: relative;">
         <div id="formContainer">
@@ -186,37 +168,20 @@
     </div>
 </div>
 
-<!-- Scripts de Funcionalidad -->
 <script>
-    function actualizarNombreArchivo(input) {
-        const labelText = document.getElementById('labelFotoText');
-        if (input.files && input.files[0]) {
-            labelText.textContent = "Foto seleccionada ✓";
-        } else {
-            labelText.textContent = "Elegir Foto";
-        }
-    }
-
     function enviarPedidoFarmaciaWhatsApp() {
         const texto = document.getElementById('pedidoFarmaciaTexto').value.trim();
-        const inputFoto = document.getElementById('fotoRecetaInput');
-        let tieneFoto = inputFoto.files && inputFoto.files.length > 0;
 
-        if (!texto && !tieneFoto) {
-            alert("Por favor escribe qué necesitas o selecciona una foto.");
+        if (!texto) {
+            alert("Por favor escribe los detalles de lo que necesitas.");
             return;
         }
 
         const numeroWhatsApp = "595982309464"; 
 
         let mensaje = "Hola! Vengo desde la sección de Farmacias de la app y quiero hacer este pedido:\n\n";
-        if (texto) {
-            mensaje += "Detalle: " + texto + "\n";
-        }
-        if (tieneFoto) {
-            mensaje += "(Tengo una foto de receta lista para enviar a continuación)\n";
-        }
-        mensaje += "\nQuedo atento a la confirmación y el costo de envío. ¡Gracias!";
+        mensaje += "Detalle: " + texto + "\n\n";
+        mensaje += "Quedo atento a la confirmación y el costo de envío. ¡Gracias!";
 
         const urlWp = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
         window.open(urlWp, '_blank');
