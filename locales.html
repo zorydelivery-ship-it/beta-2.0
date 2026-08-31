@@ -332,25 +332,31 @@
         <section class="stores-grid" id="stores-container">
         </section>
 
-        <!-- Barra de Navegación Inferior Flotante -->
-        <nav class="bottom-nav">
-            <a href="index.html" class="nav-item">
-                <i class="fa-solid fa-house"></i>
-                <span>Inicio</span>
-            </a>
-            <a href="locales.html" class="nav-item active">
-                <i class="fa-solid fa-store"></i>
-                <span>Locales</span>
-            </a>
-            <button class="nav-item" onclick="abrirModalReseña()">
-                <i class="fa-solid fa-comment-dots"></i>
-                <span>Reseña</span>
-            </button>
-            <a href="https://wa.me/595982309464" target="_blank" class="nav-item">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Ayuda</span>
-            </a>
-        </nav>
+         <!-- Barra de Navegación Inferior Flotante -->
+<nav class="bottom-nav">
+    <a href="index.html" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>Inicio</span>
+    </a>
+    <a href="locales.html" class="nav-item">
+        <i class="fa-solid fa-store"></i>
+        <span>Locales</span>
+    </a>
+    <!-- Botón de Reseña restaurado -->
+    <button class="nav-item" onclick="abrirModalReseña()">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Reseña</span>
+    </button>
+    <!-- Botón que lleva al apartado de la ruleta -->
+    <a href="ruleta.html" class="nav-item">
+        <i class="fa-solid fa-dharmachakra"></i>
+        <span>Ruleta</span>
+    </a>
+    <a href="https://wa.me/595982309464" target="_blank" class="nav-item">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Ayuda</span>
+    </a>
+</nav>
 
         <!-- Modal Reseña Anónima -->
         <div id="modalReseña" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
@@ -399,6 +405,8 @@
             { id: "kokoro", nombre: "Kokoro", img: "kokoro logo.jpeg", url: "kokoro pollos.html", categoria: "restaurantes" },
             { id: "mainumby", nombre: "Gastronomía Mainumby", img: "gatronomia manumby.png", url: "coliflor pizza.html", categoria: "restaurantes" },
             { id: "Tia tuty", nombre: "Tia tuty", img: "tia tuty logo.jpeg", url: "Tia tuty.html", categoria: "restaurantes" },
+            { id: "El rey pele", nombre: "El rey pele", img: "el rey pele logo.jpeg", url: "El rey pele.html", categoria: "restaurantes" },
+
 
 
         ];
